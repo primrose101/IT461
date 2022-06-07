@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const DogDelete = ({deleteHandler}) => {
+const CatDelete = ({deleteHandler}) => {
     const location = useLocation();
-    const dog = location.state.dog;
+    const cat = location.state.cat;
+
     const [choose, setChoose] = useState(false);
     const navigate = useNavigate();
 
@@ -11,15 +12,15 @@ const DogDelete = ({deleteHandler}) => {
         e.preventDefault();
         console.log("CHOOSE: ", choose);
         if (choose){
-            deleteHandler(dog);
+            deleteHandler(cat);
         }
-        navigate('/dogs');
+        navigate('/cats');
     }
 
     return(
         <form onSubmit={formHandler}>
             <div>
-                <label>Are you sure you want to Delete the dog named {dog.name}?</label>
+                <label>Are you sure you want to Delete the cat named {cat.name}?</label>
             </div>
             <button onClick={()=>{setChoose(true)}}>Yes</button>
             <button>No</button>
@@ -28,4 +29,4 @@ const DogDelete = ({deleteHandler}) => {
     
 }
 
-export default DogDelete;
+export default CatDelete;

@@ -12,9 +12,16 @@ import RequireAuth from './components/RequireAuth';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useAxiosPrivate from './hooks/useAxiosPrivate';
+import Dogs from './components/Dogs';
 import DogAdd from './components/DogAdd';
 import DogDetail from './components/DogDetail';
 import DogEdit from './components/DogEdit';
+import DogDelete from './components/DogDelete';
+import Cats from './components/Cats';
+import CatAdd from './components/CatAdd';
+import CatDelete from './components/CatDelete';
+import CatDetail from './components/CatDetail';
+import CatEdit from './components/CatEdit';
 
 const ROLES = {
   'User': 2001,

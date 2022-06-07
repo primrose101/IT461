@@ -1,22 +1,22 @@
-import DogCard from "./DogCard";
+import CatCard from "./CatCard";
 import { Link } from 'react-router-dom';
 
-const Dogs = ({dogs, getDogs}) => {
+const Cats = ({cats, getCats}) => {
     const paginationHandler = (e) => {
         
         e.preventDefault();
         const name = e.target.getAttribute('data-name');
-        if (name in dogs?.metadata?.links) {
-            const url = dogs.metadata.links[name];
-            getDogs(url);
+        if (name in cats?.metadata?.links) {
+            const url = cats.metadata.links[name];
+            getCats(url);
         }
     }
     return (
         <article>
             <Link to="/">Go Back</Link>
             <br></br>
-            <h2>Dogs List(<Link to ="/dogs/create">Create</Link>)</h2>
-            {dogs?.data?.length
+            <h2>Cats List(<Link to ="/cats/create">Create</Link>)</h2>
+            {cats?.data?.length
                 ? (
                     <>
                     <table border="1" cellpading="5" cellSpacing="5">
@@ -29,13 +29,13 @@ const Dogs = ({dogs, getDogs}) => {
                         </thead>
                         <tbody>
                     {
-                        dogs.data.map((dog, i) =>
-                            <DogCard dog={dog} key={dog.id}/>
+                        cats.data.map((cat, i) =>
+                            <CatCard cat={cat} key={cat.id} />
                         )
                     }
                         </tbody>
                     </table>
-                    {dogs?.metadata?.links?.previous ? 
+                    {cats?.metadata?.links?.previous ? 
                         <a
                             href="#"
                             data-name="previous"
@@ -43,7 +43,7 @@ const Dogs = ({dogs, getDogs}) => {
                         > &lsaquo;Previous </a>
                         : ''
                     }
-                    {dogs?.metadata?.links?.next ? 
+                    {cats?.metadata?.links?.next ? 
                         <a
                             href="#"
                             data-name="next"
@@ -52,10 +52,10 @@ const Dogs = ({dogs, getDogs}) => {
                         : ''
                     }
                     </>
-                ) : <p>No dogs to display</p>
+                ) : <p>No cats to display</p>
             }
         </article>
     );
 };
 
-export default Dogs;
+export default Cats;
