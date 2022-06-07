@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const DogCard = ({dog}) => {
-    return(
+    return (
         <tr key={dog.id}>
             <td>{dog.id}</td>
             <td>{dog.name}</td>
